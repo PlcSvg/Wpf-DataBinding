@@ -7,9 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <Window.DataContext>
+    <!--<Window.DataContext>
         <local:BidCollection />
-    </Window.DataContext>
+    </Window.DataContext>-->
     
     
     <StackPanel>
@@ -20,7 +20,7 @@
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
         </ItemsControl>
-        <Label Name="test" Content="{Binding Biditemname}" />
+        <!--<Label Name="test" Content="{Binding Biditemname}" />-->
     </StackPanel>
 
 </Window>
