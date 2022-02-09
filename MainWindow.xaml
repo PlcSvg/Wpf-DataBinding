@@ -7,40 +7,4 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
 
-    <Window.Resources>
-        <Style TargetType="TextBlock">
-            <Setter Property="FontSize" Value="10" />
-            <Setter Property="FontWeight" Value="Bold" />
-            <Setter Property="HorizontalAlignment" Value="Center"/>
-            <Setter Property="DockPanel.Dock" Value="Top" />
-        </Style>
-        <Style TargetType="Canvas">
-            <Setter Property="Height" Value="50"/>
-            <Setter Property="Width" Value="50" />
-            <Setter Property="Margin" Value="10"/>
-            <Setter Property="DockPanel.Dock" Value="Left" />
-        </Style>
-        <Style TargetType="ComboBox">
-            <Setter Property="Width" Value="150"/>
-            <Setter Property="Margin" Value="8" />
-            <Setter Property="DockPanel.Dock" Value="Top" />
-        </Style>
-    </Window.Resources>
-
-
-    <Border Margin="10">
-        <DockPanel HorizontalAlignment="Left" Height="300" VerticalAlignment="Top">
-            <TextBlock>Choose color</TextBlock>
-            <ComboBox Name="comboxColor" SelectedIndex="0">
-                <ComboBoxItem>Green</ComboBoxItem>
-                <ComboBoxItem>Red</ComboBoxItem>
-                <ComboBoxItem>Blue</ComboBoxItem>
-            </ComboBox>
-            <Canvas>
-                <Canvas.Background>
-                    <Binding ElementName="comboxColor" Path="SelectedItem.Content" />
-                </Canvas.Background>
-            </Canvas>
-        </DockPanel>
-    </Border>
 </Window>
