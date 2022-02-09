@@ -6,7 +6,36 @@
         xmlns:local="clr-namespace:DataBinding_wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+
+    <Window.Resources>
+        <local:BidCollection x:Key="Mydata" />
+        <DataTemplate x:Key="Biddata">
+            <Canvas Width="300" Height="100">
+                <TextBlock FontSize="14" Foreground="Blue"
+                    Width="180" Canvas.Left="0" Text="{Binding Path=Biditemname}"/>
+                <TextBlock FontSize="14" Foreground="DarkSlateBlue"
+                    Text="$" Canvas.Left="180"/>
+                <TextBlock FontSize="14" Foreground="DarkSlateBlue"
+                    Width="80" Canvas.Left="190" Text="{Binding Path=Biditemprice}"/>
+            </Canvas>
+        </DataTemplate>
+    </Window.Resources>
+
+    <DockPanel Width="300" Height="350">
+        <TextBlock FontSize="18" Margin="5" FontWeight="Bold" FontFamily="Verdana"
+               DockPanel.Dock="Top">My Auction Tracker</TextBlock>
+        <!--<ItemsControl x:Name="MyListBid" DockPanel.Dock="Top" Background="Silver" Width="315" Height="80"
+            ItemsSource="{Binding Source={StaticResource Mydata}}"
+            ItemTemplate="{StaticResource Biddata}"/>-->
+        <ItemsControl x:Name="MyListBid" DockPanel.Dock="Top" Background="Silver" Width="315" Height="100">
+            <ItemsControl.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Biditemname}" />
+                        <TextBlock Text="{Binding Biditemprice}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ItemsControl.ItemTemplate>
+        </ItemsControl>
+    </DockPanel>
 </Window>
