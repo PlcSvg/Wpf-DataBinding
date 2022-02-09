@@ -8,9 +8,9 @@
         Title="MainWindow" Height="450" Width="800">
 
     <Window.Resources>
-        <local:BidCollection x:Key="Mydata" />
+        <!--<local:BidCollection x:Key="Mydata" />-->
         <DataTemplate x:Key="Biddata">
-            <Canvas Width="300" Height="100">
+            <Canvas Width="300" Height="20">
                 <TextBlock FontSize="14" Foreground="Blue"
                     Width="180" Canvas.Left="0" Text="{Binding Path=Biditemname}"/>
                 <TextBlock FontSize="14" Foreground="DarkSlateBlue"
@@ -27,7 +27,11 @@
         <!--<ItemsControl x:Name="MyListBid" DockPanel.Dock="Top" Background="Silver" Width="315" Height="80"
             ItemsSource="{Binding Source={StaticResource Mydata}}"
             ItemTemplate="{StaticResource Biddata}"/>-->
-        <ItemsControl x:Name="MyListBid" DockPanel.Dock="Top" Background="Silver" Width="315" Height="100">
+
+        <ItemsControl x:Name="MyListBid" DockPanel.Dock="Top" Background="Silver" Width="315" Height="80"
+            ItemTemplate="{StaticResource Biddata}"/>
+        
+        <!--<ItemsControl x:Name="MyListBid" DockPanel.Dock="Top" Background="Silver" Width="315" Height="100">
             <ItemsControl.ItemTemplate>
                 <DataTemplate>
                     <StackPanel>
@@ -36,6 +40,6 @@
                     </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
-        </ItemsControl>
+        </ItemsControl>-->
     </DockPanel>
 </Window>
