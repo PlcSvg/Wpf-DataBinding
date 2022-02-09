@@ -23,9 +23,11 @@ namespace DataBinding_wpf
         public MainWindow()
         {
             InitializeComponent();
-            BidCollection bidCollection = new BidCollection();
+            //BidCollection bidCollection = new BidCollection();
+            //MyListBid.ItemsSource = bidCollection;
+
             //MyListBid.DataContext = bidCollection;
-            MyListBid.ItemsSource = bidCollection;
+            //test.DataContext = bidCollection;
         }
     }
 }
