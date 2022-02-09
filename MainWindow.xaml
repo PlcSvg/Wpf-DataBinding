@@ -6,7 +6,44 @@
         xmlns:local="clr-namespace:DataBinding_wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    
+    <Window.Resources>
+        <local:Person x:Key="MyDataSource" PersonName="Joe"/>
+        <Style TargetType="{x:Type Label}">
+            <Setter Property="DockPanel.Dock" Value="Top"/>
+            <Setter Property="FontSize" Value="12"/>
+        </Style>
+        <Style TargetType="{x:Type TextBox}">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="DockPanel.Dock" Value="Top"/>
+        </Style>
+        <Style TargetType="{x:Type TextBlock}">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="25"/>
+            <Setter Property="DockPanel.Dock" Value="Top"/>
+            <Setter Property="Padding" Value="3"/>
+        </Style>
+    </Window.Resources>
+
+    <Border>
+        <DockPanel >
+            <!--<Label>Enter name: </Label>
+            <TextBox Text="{Binding Source={StaticResource MyDataSource}, Path=PersonName, UpdateSourceTrigger=PropertyChanged}" />
+            <Label>Name enter: </Label>
+            <TextBlock Text="{Binding Source={StaticResource ResourceKey=MyDataSource}, Path=PersonName}" />-->
+            <Label>Enter name: </Label>
+            <TextBox>
+                <TextBox.Text>
+                    <Binding Source="{StaticResource MyDataSource}" Path="PersonName" UpdateSourceTrigger="PropertyChanged" />
+                </TextBox.Text>
+            </TextBox>
+            <Label>Name entered</Label>
+            <TextBlock>
+                <TextBlock.Text>
+                    <Binding Source="{StaticResource MyDataSource}" Path="PersonName" />
+                </TextBlock.Text>
+            </TextBlock>
+        </DockPanel>
+    </Border>
 </Window>
