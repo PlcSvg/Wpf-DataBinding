@@ -23,6 +23,26 @@ namespace DataBinding_wpf
         public MainWindow()
         {
             InitializeComponent();
+            UserProfile userProfile = new UserProfile();
+            RootEle.DataContext = userProfile;
+        }
+
+        public void Preview(object sender, RoutedEventArgs e)
+        {
+            var be = itemNameTextBox.GetBindingExpression(TextBox.TextProperty);
+            be.UpdateSource();
+            be = bidPriceTextBox.GetBindingExpression(TextBox.TextProperty);
+            be.UpdateSource();
+        }
+
+        private void Submit(object sender, RoutedEventArgs args)
+        {
+            //var userProfile = RootEle.DataContext as UserProfile;
+            var userProfile = (UserProfile)RootEle.DataContext;
+            MessageBox.Show("Thank you for your bid of " + userProfile?.BidPrice
+                            + " on item " + userProfile?.ItemName);
+            userdata.Opacity = 1;
+            Finish.Opacity = 1;
         }
     }
 }

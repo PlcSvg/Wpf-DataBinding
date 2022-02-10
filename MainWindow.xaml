@@ -6,7 +6,37 @@
         xmlns:local="clr-namespace:DataBinding_wpf"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+
+    <Window.Resources>
+        <Style TargetType="TextBlock">
+            <Setter Property="FontSize" Value="12"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="Margin" Value="10,10,0,0"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+        <Style TargetType="TextBox">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Margin" Value="5"/>
+            <Setter Property="HorizontalAlignment" Value="Center"/>
+        </Style>
+    </Window.Resources>
+
+    <StackPanel x:Name="RootEle">
+        <TextBlock>Fill in the bid form and click Preview to verify your bid information.</TextBlock>
+        <TextBlock>Item Name:</TextBlock>
+        <TextBox Name="itemNameTextBox" Text="{Binding Path=ItemName, UpdateSourceTrigger=Explicit}" />
+        <TextBlock>Bid Price:</TextBlock>
+        <TextBox Name="bidPriceTextBox" Text="{Binding Path=BidPrice, UpdateSourceTrigger=Explicit}" />
+        <Button Width="100" Height="25" Margin="5,5,0,0"
+              Click="Preview">Preview</Button>
+        <StackPanel x:Name="userdata">
+            <TextBlock>Verify the following information is correct and click Submit.</TextBlock>
+            <TextBlock>Item Name:</TextBlock>
+            <TextBlock Text="{Binding Path=ItemName}" />
+            <TextBlock>Bid Price:</TextBlock>
+            <TextBlock Text="{Binding Path=BidPrice}" />
+            <Button Width="100" Height="25" Margin="5,5,0,0"
+              Click="Submit" Name="Finish" Opacity="1">Submit</Button>
+        </StackPanel>
+    </StackPanel>
 </Window>
