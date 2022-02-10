@@ -23,6 +23,8 @@ namespace DataBinding_wpf
         public MainWindow()
         {
             InitializeComponent();
+            People people = new People();
+            mylistbox.ItemsSource = people;
         }
     }
 }
